@@ -22,10 +22,10 @@
 #      REVISION:  ---
 #===============================================================================
 
-
-# ---------------------------------------------------------------------------
-#
-# ---------------------------------------------------------------------------
+if [ $# == 0 ]; then
+    echo "Usage: $0 staging/production aws ec2"
+    exit 1
+fi
 
 # Go into the correct directory based on the command line parameter(s)
 source $(dirname "$0")/$1/$2/
@@ -37,6 +37,6 @@ terraform init
 terraform plan -out=staging.tfplan
 
 # Apply the terraform changes
-terraform apply "staging.tfplan"
+terraform apply "staging.tfplan" -auto-approve
 
 exit 0
