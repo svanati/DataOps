@@ -59,12 +59,6 @@ variable "aws_security_port_web" {
   default     = 8080
 }
 
-variable "source" {
-  description = "Define the location of the terraform configuration/module location"
-  type        = string
-  default     = ""
-}
-
 variable "terraform_remote_state_bucket_name" {
   description = "The S3 bucket name used for storing the terrfaform state file"
   type        = string
