@@ -15,8 +15,7 @@
 #                 SERVICE (ec2, rds, etc.)
 #          BUGS:  ---
 #         NOTES:  ---
-#        AUTHOR:  Elvin Smith, esmith@crisistextline.org
-#       COMPANY:  Crisis Text line
+#        AUTHOR:  Elvin Smith
 #       VERSION:  1.0
 #       CREATED:  09/21/2020
 #      REVISION:  ---
