@@ -22,7 +22,8 @@
 #      REVISION:  ---
 #===============================================================================
 
-if [ $# == 0 ]; then
+if [ "$#" -ne 3 ]; then
+    echo "You must enter three (3) command line arguments"
     echo "Usage: $0 staging/production aws ec2"
     exit 1
 fi
