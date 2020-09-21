@@ -1,0 +1,10 @@
+# Terraform
+*.terraform
+*.tfstate*
+*.tfstate.backup
+*.tfvars
+*.output
+
+# Ansible
+secrets.yml
+*.retry
