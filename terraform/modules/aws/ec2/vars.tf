@@ -8,8 +8,18 @@ variable "aws_instance_name" {
   type        = string
 }
 
+variable "aws_instance_type" {
+  description = "The EC2 instance type"
+  type        = string
+}
+
 variable "aws_region" {
   description = "The AWS region"
+  type        = string
+}
+
+variable "aws_security_cidr_blocks" {
+  description = "The security rule IP address range (CIDR)"
   type        = string
 }
 
@@ -27,18 +37,6 @@ variable "aws_ami" {
   description = "The AWS AMI image id"
   type        = string
   default     = "ami-0c94855ba95c71c99"
-}
-
-variable "aws_instance_type" {
-  description = "The EC2 instance type"
-  type        = string
-  default     = "t3.micro"
-}
-
-variable "aws_security_cidr_blocks" {
-  description = "The security rule IP address range (CIDR)"
-  type        = string
-  default     = "0.0.0.0/0"
 }
 
 variable "aws_security_group" {

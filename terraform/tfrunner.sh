@@ -27,16 +27,30 @@ if [ "$#" -ne 3 ]; then
     exit 1
 fi
 
+echo ""
+echo "------------------------------------------------------------------------"
+echo "Terraform: Deploying to the ${1} environment"
+echo "------------------------------------------------------------------------"
+echo ""
+
 # Go into the correct directory based on the command line parameter(s)
-source $(dirname "$0")/$1/$2/
+cd $(dirname "$0")/$1/$2/$3
 
 # Initialize the Terraform modules
 terraform init
 
 # Generate the plan file that will be used duing the system creation
-terraform plan -out=staging.tfplan
+terraform plan -out=$1.tfplan
 
 # Apply the terraform changes
-terraform apply "staging.tfplan" -auto-approve
+terraform apply -auto-approve "${1}.tfplan"
+
+echo ""
+echo "------------------------------------------------------------------------"
+echo "Terraform: Deployment to the ${1} environment completed. Exit."
+echo "------------------------------------------------------------------------"
+echo ""
+
+
 
 exit 0
