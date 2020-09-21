@@ -4,7 +4,6 @@
 *.tfstate.backup
 *.tfvars
 *.output
-*.out
 
 # Ansible
 secrets.yml
