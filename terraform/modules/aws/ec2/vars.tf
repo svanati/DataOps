@@ -33,11 +33,6 @@ variable "aws_security_group" {
   type        = string
 }
 
-variable "aws_service_name" {
-  description = "The application/service name"
-  type        = string
-}
-
 variable "ssh_pem_file" {
   description = "The SSH PEM file location"
   type        = string
