@@ -6,6 +6,5 @@ module "ec2" {
     aws_security_app_port    = 8080
     aws_security_cidr_blocks = "0.0.0.0/0"
     aws_security_group       = "airflow"
-    aws_service_name         = "airflow"
     ssh_pem_file             = "AWS-DevOps"
 }
