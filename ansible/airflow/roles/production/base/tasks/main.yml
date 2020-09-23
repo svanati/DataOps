@@ -1,0 +1,7 @@
+- name: Generate application user password
+  command: openssl rand -hex 7
+  register: airflow_password
+
+- name: Generate database user password
+  command: openssl rand -hex 7
+  register: airflow_db_password

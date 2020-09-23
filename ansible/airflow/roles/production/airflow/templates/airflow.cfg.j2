@@ -103,7 +103,7 @@ executor = {{ airflow_executor }}
 # SqlAlchemy supports many different database engine, more information
 # their website
 # sql_alchemy_conn = sqlite:////etc/airflow/airflow.db
-sql_alchemy_conn = postgresql+psycopg2://{{ airflow_host }}:{{ airflow_port }}/airflow
+sql_alchemy_conn = mysql+pymysql://{{airflow_user}}:{{airflow_db_password}}@{{airflow_db_host}}/{{airflow_db_name}}
 
 # The encoding for the databases
 sql_engine_encoding = utf-8
@@ -548,7 +548,7 @@ worker_log_server_port = 8793
 # a sqlalchemy database. Refer to the Celery documentation for more
 # information.
 # http://docs.celeryproject.org/en/latest/userguide/configuration.html#broker-settings
-broker_url = sqla+postgres://airflow:airflow@{{ airflow_host }}:{{ airflow_port }}/airflow
+broker_url = sqla+mysql://{{ airflow_user }}:{{ airflow_user }}@{{ airflow_db_host }}:{{ airflow_port }}/airflow
 
 # The Celery result_backend. When a job finishes, it needs to update the
 # metadata of the job. Therefore it will post a message on a message bus,
@@ -556,7 +556,7 @@ broker_url = sqla+postgres://airflow:airflow@{{ airflow_host }}:{{ airflow_port 
 # This status is used by the scheduler to update the state of the task
 # The use of a database is highly recommended
 # http://docs.celeryproject.org/en/latest/userguide/configuration.html#task-result-backend-settings
-result_backend = db+postgres://airflow:airflow@{{ airflow_host }}:{{ airflow_port }}/airflow
+result_backend = db+mysql://{{ airflow_user }}:{{ airflow_user }}@{{ airflow_db_host }}:{{ airflow_port }}/airflow
 
 # Celery Flower is a sweet UI for Celery. Airflow has a shortcut to start
 # it ``airflow flower``. This defines the IP that Celery Flower runs on
@@ -663,7 +663,7 @@ print_stats_interval = 30
 # ago (in seconds), scheduler is considered unhealthy.
 # This is used by the health check in the "/health" endpoint
 scheduler_health_check_threshold = 30
-child_process_log_directory = /etc/airflow/logs/scheduler
+child_process_log_directory = {{ airflow_home }}/logs/scheduler
 
 # Local task jobs periodically heartbeat to the DB. If the job has
 # not heartbeat in this many seconds, the scheduler will mark the

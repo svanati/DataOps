@@ -1,7 +1,23 @@
 - name: Copy updated configuration file
-  copy:
-    source: ../files/airflow.cfg
+  template:
+    source: ../templates/airflow.cfg.j2
     destination: /airflow/etc/airflow.cfg
     mode: 0644
-  notify:
-    - restart nginx service
+
+- name: Copy startup scripts to the startup init directory
+  copy:
+    source: ../files/scripts/systemd/*.service
+    destination: /usr/lib/systemd/system/
+    excludes:
+      - "airflow"
+      - "airflow.conf"
+
+- name: Copy Apache Airflow configuration file to ensures /run/airflow is created with the right owner and permissions (0755 airflow airflow)
+  copy:
+    source: ../files/scripts/systemd/airflow.conf
+    destination: /usr/lib/tmpfiles.d/
+
+- name: Copy Apache Airflow binary file to the sysconfig directory
+  copy:
+    source: ../files/scripts/systemd/airflow
+    destination: /etc/sysconfig/

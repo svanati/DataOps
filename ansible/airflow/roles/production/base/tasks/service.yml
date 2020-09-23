@@ -1,5 +1,0 @@
-- name: Start Apache Airflow service
-  service:
-    enabled: yes
-    name: airflow
-    state: started

@@ -1,7 +1,8 @@
-- name: Restart Apache Airflow service
+- name: Start Apache Airflow service
   service:
+    enabled: yes
     name: {{item}}
-    state: restarted
+    state: started
   with_items:
     - airflow-scheduler
     - airflow-webserver

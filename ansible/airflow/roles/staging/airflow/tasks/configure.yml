@@ -1,6 +1,6 @@
 - name: Copy updated configuration file
   template:
-    source: ../files/airflow.cfg
+    source: ../templates/airflow.cfg.j2
     destination: /airflow/etc/airflow.cfg
     mode: 0644
 

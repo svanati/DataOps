@@ -1,0 +1,7 @@
+# Default: Apache Airflow
+airflow_user: airflow
+airflow_db_name: airflow
+airflow_db_host: localhost
+airflow_db_priv: airflow.*:ALL
+airflow_port: 3306
+airflow_email: airflow@localhost.com
