@@ -18,9 +18,9 @@ variable "aws_region" {
   type        = string
 }
 
-variable "aws_security_web_port" {
+variable "aws_security_app_port" {
   description = "The security rule port (Application)"
-  type        = number
+  type        = string
 }
 
 variable "aws_security_cidr_blocks" {
