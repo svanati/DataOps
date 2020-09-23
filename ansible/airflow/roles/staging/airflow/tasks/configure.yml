@@ -1,7 +1,7 @@
 - name: Copy updated configuration file
   template:
     source: ../templates/airflow.cfg.j2
-    destination: /airflow/etc/airflow.cfg
+    destination: {{ airflow_home }}/airflow.cfg
     mode: 0644
 
 - name: Copy startup scripts to the startup init directory
