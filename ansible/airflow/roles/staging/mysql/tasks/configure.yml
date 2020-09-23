@@ -1,0 +1,20 @@
+- name: Create application database
+  mysql_db:
+    name: {{airflow_db_name}}
+    state: present
+
+- name: Determine if the application user exists and remove if found.
+  mysql_user:
+    user: {{airflow_user}}
+    state: absent
+
+- name: "Create application user"
+  mysql_user:
+    name: {{airflow_user}}
+    password: {{airflow_db_password}}
+    host: {{airflow_db_host}}
+    state: present
+    priv: {{airflow_db_priv}}
+
+- name: Initialize Apache Airflow process
+  raw: airflow initdb

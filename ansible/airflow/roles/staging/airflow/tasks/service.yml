@@ -1,0 +1,9 @@
+- name: Start Apache Airflow service
+  service:
+    enabled: yes
+    name: {{item}}
+    state: started
+  with_items:
+    - airflow-scheduler
+    - airflow-webserver
+    - airflow-worker

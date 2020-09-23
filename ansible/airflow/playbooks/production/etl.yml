@@ -1,0 +1,9 @@
+- hosts: etl
+  become: true
+  become_user: root
+  pre_tasks:
+    - shell: echo 'START":" Apache Airflow installation'
+  roles:
+    - production/airflow
+  post_tasks:
+    - shell: echo 'END":" Apache Airflow installation'

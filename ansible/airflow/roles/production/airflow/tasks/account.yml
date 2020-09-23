@@ -1,0 +1,10 @@
+- name: Create Airflow group
+  group:
+    name: airflow
+    state: present
+
+- name: Create Airflow user
+  user:
+    name: airflow
+    group: airflow
+    comment: "Apache Airflow"

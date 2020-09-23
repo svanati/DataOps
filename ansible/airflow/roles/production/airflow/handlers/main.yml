@@ -1,0 +1,4 @@
+- name: Restart Apache Airflow service
+  service:
+    name: airflow
+    state: restarted

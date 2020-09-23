@@ -1,0 +1,2 @@
+- include: ./playbooks/staging/db.yml
+- include: ./playbooks/staging/etl.yml

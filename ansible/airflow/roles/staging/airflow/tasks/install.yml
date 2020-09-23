@@ -1,0 +1,26 @@
+- name: Create Apache Airflow home directory, if not exists
+  file:
+    path: "{{ airflow_home }}"
+    state: directory
+    owner: "{{ airflow_user }}"
+    group: "{{ airflow_group }}"
+
+- name: Install required packages
+  yum:
+    name: {{item}}
+    state: latest
+    update_cache: true
+  with items: epel
+    mysql
+    mysql-libs
+    python3
+    python3-devel
+    python3-pip
+    python3-psycopg2
+    gcc
+
+- name: Install required Python package(s)
+  raw: pip3 install pymysql
+
+- name: Install Apache Airflow
+  raw: pip3 install 'apache-airflow[jdbc,mysql,postgresql,redis,ssh]'

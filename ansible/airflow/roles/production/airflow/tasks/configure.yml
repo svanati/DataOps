@@ -1,0 +1,7 @@
+- name: Copy updated configuration file
+  copy:
+    source: ../files/airflow.cfg
+    destination: /airflow/etc/airflow.cfg
+    mode: 0644
+  notify:
+    - restart nginx service

@@ -1,0 +1,8 @@
+- name: Restart Apache Airflow service
+  service:
+    name: {{item}}
+    state: restarted
+  with_items:
+    - airflow-scheduler
+    - airflow-webserver
+    - airflow-worker

@@ -1,0 +1,5 @@
+[etl]
+airflow-us ansible_ssh_host=<CHANGE> ansible_ssh_port=22
+
+[db]
+airflow-rds ansible_ssh_host=<CHANGE> ansible_ssh_port=3306

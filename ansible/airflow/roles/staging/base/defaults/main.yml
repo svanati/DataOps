@@ -1,0 +1,9 @@
+# Default: Apache Airflow
+airflow_home: /etc/airflow
+airflow_user: airflow
+airflow_group: airflow
+airflow_executor: LocalExecutor
+airflow_db_name: airflow
+airflow_db_host: localhost
+airflow_port: 3306
+airflow_email: airflow@localhost.com
