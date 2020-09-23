@@ -22,24 +22,24 @@ resource "aws_instance" "airflow" {
 }
 
 resource "aws_security_group" "airflow" {
-  name = var.aws_security_group
+  name        = var.aws_security_group
   description = "This security group and the following security rules provide the required access to the Apache Airflow service(s)"
 }
 
 resource "aws_security_group_rule" "ssh" {
-  type = "ingress"
-  from_port = var.aws_security_port_ssh
-  to_port = var.aws_security_port_ssh
-  protocol = "tcp"
-  cidr_blocks = [var.aws_security_cidr_blocks]
+  type              = "ingress"
+  from_port         = var.aws_security_ssh_port
+  to_port           = var.aws_security_ssh_port
+  protocol          = "tcp"
+  cidr_blocks       = [var.aws_security_cidr_blocks]
   security_group_id = aws_security_group.airflow.id
 }
 
 resource "aws_security_group_rule" "web" {
-  type = "ingress"
-  from_port = var.aws_security_port_web
-  to_port = var.aws_security_port_web
-  protocol = "tcp"
-  cidr_blocks = [var.aws_security_cidr_blocks]
+  type              = "ingress"
+  from_port         = var.aws_security_app_port
+  to_port           = var.aws_security_app_port
+  protocol          = "tcp"
+  cidr_blocks       = [var.aws_security_cidr_blocks]
   security_group_id = aws_security_group.airflow.id
 }

@@ -36,6 +36,9 @@ echo ""
 # Go into the correct directory based on the command line parameter(s)
 cd $(dirname "$0")/$1/$2/$3
 
+# Get required module(s)
+terraform get
+
 # Initialize the Terraform modules
 terraform init
 

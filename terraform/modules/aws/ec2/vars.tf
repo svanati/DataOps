@@ -18,8 +18,23 @@ variable "aws_region" {
   type        = string
 }
 
+variable "aws_security_app_port" {
+  description = "The security rule port (Application)"
+  type        = number
+}
+
 variable "aws_security_cidr_blocks" {
   description = "The security rule IP address range (CIDR)"
+  type        = string
+}
+
+variable "aws_security_group" {
+  description = "The access security group"
+  type        = string
+}
+
+variable "aws_service_name" {
+  description = "The application/service name"
   type        = string
 }
 
@@ -39,32 +54,8 @@ variable "aws_ami" {
   default     = "ami-0c94855ba95c71c99"
 }
 
-variable "aws_security_group" {
-  description = "The access security group"
-  type        = string
-  default     = "airflow"
-}
-
-variable "aws_security_port_ssh" {
+variable "aws_security_ssh_port" {
   description = "The security rule port (SSH)"
   type        = number
   default     = 22
-}
-
-variable "aws_security_port_web" {
-  description = "The security rule port (Web)"
-  type        = number
-  default     = 8080
-}
-
-variable "terraform_remote_state_bucket_name" {
-  description = "The S3 bucket name used for storing the terrfaform state file"
-  type        = string
-  default     = null
-}
-
-variable "terraform_remote_state_file_path" {
-  description = "The terraform state path in S3"
-  type        = string
-  default     = null
 }
