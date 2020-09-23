@@ -35,10 +35,10 @@ resource "aws_security_group_rule" "ssh" {
   security_group_id = aws_security_group.airflow.id
 }
 
-resource "aws_security_group_rule" "app" {
+resource "aws_security_group_rule" "web" {
   type              = "ingress"
-  from_port         = var.aws_security_app_port
-  to_port           = var.aws_security_app_port
+  from_port         = var.aws_security_web_port
+  to_port           = var.aws_security_web_port
   protocol          = "tcp"
   cidr_blocks       = [var.aws_security_cidr_blocks]
   security_group_id = aws_security_group.airflow.id
