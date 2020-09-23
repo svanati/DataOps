@@ -20,7 +20,7 @@ variable "aws_region" {
 
 variable "aws_security_app_port" {
   description = "The security rule port (Application)"
-  type        = string
+  type        = number
 }
 
 variable "aws_security_cidr_blocks" {
