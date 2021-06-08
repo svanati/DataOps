@@ -1,0 +1,36 @@
+{
+  "db-source": [
+    {
+      "database": "<DATABASE>",
+      "driver": "com.mysql.cj.jdbc.Driver",
+      "hostname": "<HOSTNAME>",
+      "port": 3306,
+      "url": "jdbc:mysql",
+      "username": "<DATABASE USER NAME>",
+      "password": "<DATABASE USER PASSWORD>"
+    }
+  ],
+  "db-destination": [
+    {
+      "database": "<DATABASE>",
+      "driver": "com.mysql.cj.jdbc.Driver",
+      "hostname": "<HOSTNAME>",
+      "port": 3306,
+      "url": "jdbc:mysql",
+      "username": "<DATABASE USER NAME>",
+      "password": "<DATABASE USER PASSWORD>"
+    }
+  ],
+  "spark": [
+    {
+      "master": "local[*]"
+    }
+  ],
+  "s3": [
+    {
+      "access_key": "<AWS ACCESS KEY>",
+      "secret_Key": "<AWS SECRET KEY>",
+      "bucket_name": "<AWS S3 BUCKET NAME>"
+    }
+  ]
+}
