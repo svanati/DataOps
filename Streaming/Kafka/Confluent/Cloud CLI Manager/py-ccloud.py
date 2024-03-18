@@ -17,7 +17,7 @@ ENV_LOGIN_PASSWORD = "CCLOUD_PASSWORD"
 
 def login() -> None:
     if ENV_LOGIN_EMAIL not in os.environ or ENV_LOGIN_PASSWORD not in os.environ:
-        print(f"Please provide enviroment variables {ENV_LOGIN_EMAIL} and {ENV_LOGIN_PASSWORD}.")
+        print(f"Please provide a Confluent login email address and login password in the CLI enviroment variables.")
         exit(0)
     execute("ccloud login")
 
